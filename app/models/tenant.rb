@@ -1,5 +1,5 @@
 class Tenant < ActiveRecord::Base
-
+  has_many :users
   before_create :generate_api_key
   
   private
