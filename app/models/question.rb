@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-
+  default_scope { where(private: false) }
   has_many :answers
   belongs_to :user
 
