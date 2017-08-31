@@ -35,6 +35,7 @@ gem 'rails-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails'
   gem 'byebug'
 end
 
@@ -47,4 +48,10 @@ group :development do
 end
 
 gem 'markdown-rails'
-gem 'ffaker'
+
+group :test do
+ gem 'factory_girl_rails'
+ gem 'shoulda-matchers'
+ gem 'ffaker'
+ gem 'database_cleaner'
+end
