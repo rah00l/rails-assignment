@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>An HTML dashboard page</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<br>
+<h2>An HTML dashboard page</h2>
+<br>
+<h3>Total number of Users, Questions, and Answers in the system</h3>
+<br>
+<table>
+  <tr>
+    <th>Total number of Users</th>
+    <th>Total number of Questions</th>
+    <th>Total number of Answers</th>
+  </tr>
+  <tr>
+    <td><%= User.count %></td>
+    <td><%= Question.count %></td>
+    <td><%= Answer.count %></td>
+  </tr>
+</table>
+<br>
+<h3>Tenant API request counts for all Tenants</h3>
+<br>
+
+<table>
+  <tr>
+    <th>All Tenants</th>
+    <th>API request url</th>
+    <th>Tenant API request counts</th>
+  </tr>
+  <% @tenants.each do |tenant|%>
+  <tr>
+    <td><%= tenant.name %></td>
+    <td><%= "#{request.original_url}tenants/#{tenant.id}" %><td>
+    <td><%= RequestCounter.redis.get("request_counter:/tenants/#{tenant.id}") %></td>
+  </tr>
+  <% end %>
+</table>
+</body>
+</html>
