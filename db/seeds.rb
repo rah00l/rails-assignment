@@ -9,14 +9,15 @@
 require 'ffaker'
 
 # Tenants
+tenants = []
 10.times do
-  Tenant.create(name: FFaker::Company.name)
+  tenants << Tenant.create(name: FFaker::Company.name)
 end
 
 # Users
 users = []
 20.times do
-  users << User.create(name: FFaker::Name.name)
+  users << User.create(name: FFaker::Name.name, tenant: tenants.sample)
 end
 
 # Questions and Answers
