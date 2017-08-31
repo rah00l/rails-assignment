@@ -120,6 +120,7 @@ GEM
     rdiscount (1.6.8)
     rdoc (4.2.2)
       json (~> 1.4)
+    redis (4.0.0)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -187,6 +188,7 @@ DEPENDENCIES
   markdown-rails
   rails (= 4.2.4)
   rails-api
+  redis
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

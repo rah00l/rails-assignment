@@ -22,5 +22,9 @@ module RailsInterviewProject
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # config/application.rb (in the Rails::Application subclass)
+    require "request_counter"
+    config.middleware.insert(0, RequestCounter)
+
   end
 end
