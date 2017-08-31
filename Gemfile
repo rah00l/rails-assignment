@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-api'
 # A Ruby client library for Redis
 gem 'redis'
+# Rack middleware for rate-limiting incoming HTTP requests.
+gem 'rack-throttle'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

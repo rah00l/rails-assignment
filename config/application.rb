@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'rack/throttle'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -26,5 +27,6 @@ module RailsInterviewProject
     require "request_counter"
     config.middleware.insert(0, RequestCounter)
 
+    config.middleware.use Rack::Throttle::Daily, :max => 100
   end
 end
